@@ -1,1 +1,58 @@
-file:///C:/Users/WINDOWS/Downloads/index.html
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff2f8">
+<meta name="description" content="Pinkie Playland — khu vui chơi mini game hồng pastel dễ thương.">
+<title>Pinkie Playland 🎀 Mini Games</title>
+<style>
+:root{--pink:#e985b7;--deep:#c84d8b;--ink:#75435f;--soft:#fff5fa;--line:#f2c9df}
+*{box-sizing:border-box}body{margin:0;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;color:var(--ink);background:linear-gradient(145deg,#fff5fa,#fff0f2 55%,#f7f0ff);min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;transition:transform .15s,filter .15s}button:hover{filter:brightness(.98);transform:translateY(-2px)}button:focus-visible{outline:3px solid #d65b99;outline-offset:3px}
+.shell{max-width:980px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.brand{font-weight:900;font-size:19px;color:#d65b99}.pill{border:1px solid var(--line);background:#fff9fc;border-radius:99px;padding:7px 12px;font-size:12px}
+.hero{text-align:center;padding:35px 0 25px}.spark{font-size:32px}h1{font-size:clamp(30px,6vw,48px);line-height:1.12;margin:10px 0;color:var(--deep)}.sub{font-size:14px;color:#9a7189;line-height:1.7}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.game{border:1px solid #f4d9e7;border-radius:22px;background:#fffafc;padding:20px 15px;text-align:center;box-shadow:0 7px 20px #e9b6cf25}.emoji{font-size:45px;display:block;margin:4px 0 10px}.game h2{font-size:17px;margin:0 0 7px;color:#9d5078}.game p{font-size:13px;line-height:1.5;color:#a48599;min-height:38px;margin:0 0 14px}.play{background:#f7c5df;color:#8f3c69;border-radius:99px;padding:10px 16px;font-size:13px;font-weight:800;width:100%}.zone{background:#fffafd;border:1px solid #f2d3e4;border-radius:22px;padding:20px;margin-top:18px;min-height:210px;text-align:center;box-shadow:0 7px 20px #e9b6cf18}.back{background:#f9e6f0;color:#9a5177;border-radius:99px;padding:8px 13px;font-size:12px;margin-bottom:12px}.question{font-size:20px;font-weight:850;margin:12px 0 16px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-width:600px;margin:auto}.answer{background:#fff0f7;border:1px solid #f5d0e4;border-radius:12px;padding:12px;color:#935277;font-size:14px}.status{font-size:14px;color:#b04b81;margin:14px 0;min-height:20px}.primary{background:var(--pink);color:white;font-weight:800;border-radius:99px;padding:11px 19px}.score{font-weight:900;color:#d35c99}.catcharea{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;max-width:520px;margin:14px auto}.fruit{background:#fff0f7;border-radius:13px;min-height:48px;font-size:23px;padding:6px}.fruit:disabled{opacity:.5}.memory{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:340px;margin:14px auto}.tile{background:#f8d5e7;border-radius:13px;min-height:58px;font-size:24px;color:#a84d7c}.tile.open{background:#fff0f7}.foot{text-align:center;font-size:12px;color:#bb92aa;margin:22px 0 6px}.hide{display:none!important}
+@media(max-width:560px){.shell{padding:15px}.hero{padding:23px 0 18px}.cards{grid-template-columns:1fr;gap:10px}.game{display:grid;grid-template-columns:48px 1fr;column-gap:10px;text-align:left;align-items:center;padding:13px}.emoji{grid-row:1/4;font-size:32px;margin:0}.game h2{margin:0}.game p{min-height:0;margin:3px 0 8px}.play{width:auto;justify-self:start;padding:8px 15px}.zone{padding:15px}.answers{gap:7px}.answer{padding:10px 6px}.tile{min-height:52px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="shell" id="app">
+<header class="top"><div class="brand">🎀 Pinkie Playland</div><div class="pill">⭐ Điểm: <strong id="total">0</strong></div></header>
+<section class="hero" id="welcome"><div class="spark">🌷 🧸 🍓</div><h1>Let’s play,<br>cutie pie!</h1><div class="sub">Một chút vui vẻ cho ngày hôm nay ♡<br>Chọn trò chơi mà bạn thích nhé!</div></section>
+<section class="cards" id="cards">
+<article class="game"><span class="emoji">🧠</span><h2>Đố vui cute</h2><p>Thử tài nhanh trí của bạn!</p><button class="play" data-game="quiz">Chơi ngay ♡</button></article>
+<article class="game"><span class="emoji">🍓</span><h2>Bắt dâu tây</h2><p>Bắt càng nhiều, điểm càng cao!</p><button class="play" data-game="catch">Chơi ngay ♡</button></article>
+<article class="game"><span class="emoji">💖</span><h2>Bắt cặp hình</h2><p>Tìm hai biểu tượng giống nhau.</p><button class="play" data-game="memory">Chơi ngay ♡</button></article>
+</section>
+<section class="zone hide" id="zone" aria-live="polite"><button class="back" id="back">← Chọn trò khác</button><div id="gamecontent"></div></section>
+<footer class="foot">made with ♡ and a little bit of magic</footer>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);let total=0,timer=null,seconds=15,catches=0,deck=[],first=null,locked=false,matches=0;
+function add(n){total+=n;$('total').textContent=total}
+function stop(){if(timer){clearInterval(timer);timer=null}}
+function show(){stop();$('welcome').classList.add('hide');$('cards').classList.add('hide');$('zone').classList.remove('hide');$('gamecontent').innerHTML='';first=null;locked=false}
+function home(){stop();$('zone').classList.add('hide');$('welcome').classList.remove('hide');$('cards').classList.remove('hide')}
+$('back').addEventListener('click',home);
+document.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>{show();({quiz,catch:catchGame,memory})[b.dataset.game]()}));
+const questions=[
+{q:'🍓 Dâu tây thường có màu gì?',a:['Màu hồng','Màu đỏ','Màu xanh','Màu tím'],c:1},
+{q:'🐱 Mèo kêu như thế nào?',a:['Gâu gâu','Meo meo','Ò ó o','Chíp chíp'],c:1},
+{q:'🌙 Thứ gì xuất hiện trên trời vào ban đêm?',a:['Mặt trăng','Cầu vồng','Mặt trời','Hoa tulip'],c:0},
+{q:'🐝 Bạn ong thích tìm gì ở hoa?',a:['Sô-cô-la','Mật hoa','Kem dâu','Bánh quy'],c:1},
+{q:'🌈 Cầu vồng thường xuất hiện sau gì?',a:['Cơn mưa','Bữa tối','Giấc ngủ','Tiếng nhạc'],c:0}
+];
+function quiz(){let index=0,score=0;function render(){const el=$('gamecontent');if(index===questions.length){el.innerHTML=`<div style="font-size:40px">🏆</div><div class="question">Hoàn thành rồi!</div><div class="sub">Bạn đúng ${score}/${questions.length} câu. Giỏi lắm nè!</div><p class="score">+${score*10} điểm ✨</p><button class="primary" id="again">Chơi lại ♡</button>`;add(score*10);$('again').onclick=quiz;return}
+const q=questions[index];el.innerHTML=`<div class="pill">Câu ${index+1} / ${questions.length}</div><div class="question">${q.q}</div><div class="answers">${q.a.map((a,i)=>`<button class="answer" data-answer="${i}">${a}</button>`).join('')}</div><div class="status" id="feedback">Chọn một đáp án nha ♡</div>`;
+el.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{if(el.querySelector('[data-answer]:disabled'))return;let ok=+b.dataset.answer===q.c;el.querySelectorAll('[data-answer]').forEach(x=>{x.disabled=true;if(+x.dataset.answer===q.c)x.style.background='#d8f3dd'});if(ok){score++;$('feedback').textContent='Chính xác! Bạn giỏi quá 🌟'}else $('feedback').textContent='Chưa đúng mất rùi, cố lên nè 💗';let next=document.createElement('button');next.className='primary';next.textContent=index===questions.length-1?'Xem kết quả':'Câu tiếp theo →';next.onclick=()=>{index++;render()};el.appendChild(next)})}render()}
+function catchGame(){catches=0;seconds=15;let el=$('gamecontent');el.innerHTML='<div style="font-size:32px">🍓</div><div class="question">Bắt dâu tây nào!</div><div class="sub">Bấm vào dâu tây để ghi điểm trong 15 giây.</div><div class="status">⏱️ <span id="time">15</span>s · 🍓 Điểm: <span id="caught">0</span></div><div class="catcharea" id="fruits"></div><button class="primary" id="begin">Bắt đầu!</button>';
+let fruits=$('fruits');for(let i=0;i<15;i++){let b=document.createElement('button');b.className='fruit';b.textContent=['🍓','🌸','🍒','🍰','🍓'][Math.floor(Math.random()*5)];b.disabled=true;b.onclick=()=>{if(seconds<=0)return;if(b.textContent==='🍓'){catches++;$('caught').textContent=catches;b.textContent='✨';b.disabled=true;setTimeout(()=>{if(seconds>0){b.textContent='🍓';b.disabled=false}},300)}else{b.textContent='🍓';b.disabled=true;setTimeout(()=>{if(seconds>0)b.disabled=false},250)}};fruits.appendChild(b)}
+$('begin').onclick=()=>{if(timer)return;seconds=15;$('time').textContent=seconds;fruits.querySelectorAll('button').forEach(b=>b.disabled=false);$('begin').disabled=true;$('begin').textContent='Cố lên nào!';timer=setInterval(()=>{seconds--;$('time').textContent=seconds;if(seconds<=0){stop();fruits.querySelectorAll('button').forEach(b=>b.disabled=true);add(catches);$('begin').disabled=false;$('begin').textContent='Chơi lại ♡';$('begin').onclick=catchGame;let result=document.createElement('div');result.className='status';result.textContent='Hết giờ! Bạn bắt được '+catches+' quả dâu 🍓';el.appendChild(result)}},1000)}}
+function memory(){deck=['🍓','🐱','🌷','🧁','🦋','🍒','🎀','🐰'];deck=[...deck,...deck].sort(()=>Math.random()-.5);first=null;locked=false;matches=0;let el=$('gamecontent');el.innerHTML='<div style="font-size:30px">💖</div><div class="question">Tìm những đôi giống nhau</div><div class="sub">Lật hai thẻ mỗi lượt. Ghép hết các đôi nhé!</div><div class="status">Tìm được: <span id="matched">0</span>/8 đôi</div><div class="memory" id="board"></div><button class="primary" id="restart">Xáo bài ♡</button>';deck.forEach((icon,i)=>{let b=document.createElement('button');b.className='tile';b.textContent='?';b.dataset.icon=icon;b.dataset.index=i;b.onclick=()=>flip(b);$('board').appendChild(b)});$('restart').onclick=memory}
+function flip(b){if(locked||b.disabled||b===first)return;b.textContent=b.dataset.icon;b.classList.add('open');if(!first){first=b;return}locked=true;let a=first;first=null;if(a.dataset.icon===b.dataset.icon){a.disabled=b.disabled=true;matches++;$('matched').textContent=matches;add(10);locked=false;if(matches===8){let result=document.createElement('div');result.className='status';result.textContent='Tuyệt vời! Bạn đã ghép hết các đôi 🎉';$('gamecontent').appendChild(result)}}else setTimeout(()=>{a.textContent=b.textContent='?';a.classList.remove('open');b.classList.remove('open');locked=false},650)}
+})();
+</script>
+</body>
+</html>
